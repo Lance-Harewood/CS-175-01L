@@ -3,9 +3,11 @@ public class RoachPopulation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
 	}
 	double roach;
+	double breedRoach;
+	double sprayRoach;
+	int percent;
 	int cycle;
 	public RoachPopulation(int roachNum) {
 		roach=roachNum;
@@ -13,15 +15,17 @@ public class RoachPopulation {
 	}
 	public void breed() {
 		roach*=2;
+		breedRoach=roach;
 		cycle++;
-		System.out.println("The Roach population after cycle "+cycle+" breeding is "+(int)roach);
 	}
 	public void spray(int killPercent) {
+		percent=killPercent;
 		roach-=((roach*(killPercent*.01)));
 		roach=Math.round(roach);
-		System.out.println("The Roach population after cycle "+cycle+" "+killPercent+" spraying is "+(int)roach);
+		sprayRoach=roach;
 	}
-	public int getRoaches() {
-		return (int) (roach);
+	public void getRoaches() {
+		System.out.println("The Roach population after cycle "+cycle+" of breeding is "+(int)breedRoach);
+		System.out.println("The Roach population after cycle "+cycle+" at "+percent+"% spraying is "+(int)sprayRoach);
 	}
 }
